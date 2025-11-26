@@ -6,8 +6,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'main',
-                    url: 'https://github.com/im23b-kuligm/M324-traffic-
-                    // light-app.git'
+                    url: 'https://github.com/im23b-kuligm/M324-traffic-light-app.git'
                 }
             }
         }
