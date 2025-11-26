@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    tools { nodejs "node" }
+    stages {
+        stage('cloning Repo'){
+            steps {
+                script {
+                    git branch: 'main',
+                    url: 'https://github.com/im23b-kuligm/M324-traffic-
+                    // light-app.git'
+                }
+            }
+        }
+        stage('Install jest-cli') {
+            steps {
+                dir('02/01_Intro/app') {
+                    sh 'npm install jest-cli -g'
+                }
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                dir('02/01_Intro/app') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('02/01_Intro/app') {
+                    sh 'npm test'
+                }
+            }
+        }
+    }
+}
